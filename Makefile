@@ -17,4 +17,4 @@ docker-push: ## Push docker image to registry
 	./src/scripts/docker-push.sh
 
 .PHONY: docker-build-and-push
-docker-build-and-push: deps docker-login docker-build docker-push
+docker-build-and-push: docker-login docker-build docker-push
