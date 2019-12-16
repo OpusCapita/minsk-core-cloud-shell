@@ -9,7 +9,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: |
-          apk add --no-cache vault
+          apk add --no-cache vault make
           make docker-login
           make docker-build
           make docker-push
