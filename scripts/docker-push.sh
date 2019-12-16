@@ -2,4 +2,6 @@
 
 set -xo pipefail
 
-docker push $( ./get-docker-tag.sh )
+script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+docker push $( $script_dir/get-docker-tag.sh )
