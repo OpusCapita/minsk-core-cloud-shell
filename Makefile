@@ -6,11 +6,15 @@ help:
 
 .PHONY: docker-login
 docker-login: ## Login to docker registry
-	./scripts/docker-login.sh
+	./src/scripts/docker-login.sh
 
 .PHONY: docker-build
 docker-build: ## Build docker image
-	./scripts/docker-build.sh
+	./src/scripts/docker-build.sh
 
 .PHONY: docker-push
 docker-push: ## Push docker image to registry
+	./src/scripts/docker-push.sh
+
+.PHONY: docker-build-and-push
+docker-build-and-push: deps docker-login docker-build docker-push

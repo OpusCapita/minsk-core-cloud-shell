@@ -1,6 +1,6 @@
 # minsk-core-cloud-shell
 
-![demo.png](./demo.png)
+![demo.png](./docs/demo.png)
 
 [DockerHub 🐳 🐳 🐳](https://hub.docker.com/repository/docker/opuscapita/minsk-core-cloud-shell)
 
