@@ -22,5 +22,6 @@ Additional tools like `kubectl` and `vim` are added to Docker image for advanced
 
 [pod-context-menu](./pod-context-menu.png)
 
- - Use "Delete" item to restart application.
- - Use "Follow Logs" item to see application logs.
+- Use "Delete" item to restart application.
+- Use "Teminal" item to execute application container terminal.
+- Use "Follow Logs" item to see application logs.
