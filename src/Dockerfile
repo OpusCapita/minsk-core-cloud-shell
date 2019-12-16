@@ -43,7 +43,6 @@ RUN curl -fsSLk -o /tmp/vault.zip https://releases.hashicorp.com/vault/1.2.2/vau
   && rm -f /tmp/vault.zip
 
 # Add files
-COPY ./README.md /README.md
 COPY ./create-kubeconfig.sh /create-kubeconfig.sh
 COPY ./entrypoint.sh /entrypoint.sh
 
