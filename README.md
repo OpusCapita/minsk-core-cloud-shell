@@ -13,3 +13,7 @@ VS Code [Kubernetes plugin](https://github.com/Azure/vscode-kubernetes-tools) al
 Kubernetes API's RBAC allows to restrict possible iteraction scope to concrete Kubernetes namespace.
 
 Additional tools like `kubectl` and `vim` are added to Docker image for advanced use-cases to users show familiar with these tools.
+
+## Usage
+
+- []()
