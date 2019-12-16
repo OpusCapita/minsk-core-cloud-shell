@@ -16,4 +16,11 @@ Additional tools like `kubectl` and `vim` are added to Docker image for advanced
 
 ## Usage
 
-- []()
+- Click to Kuberntes plugin icon in the sidebar. ![menu](./docs/menu.png)
+- Use tree to navigate: `kubernetes (or another cluster name)` => `Workloads` => `Deployments` => `prov` (application deployment) => `prov-xxx-id` (application pod).
+- Use mouse right click to call context menu and use available iteraction options.
+
+[pod-context-menu](./pod-context-menu.png)
+
+ - Use "Delete" item to restart application.
+ - Use "Follow Logs" item to see application logs.
