@@ -1,9 +1,9 @@
 version: 2.1
 
 jobs:
-  docker-build-and-push:
+  build:
     docker:
-    - image: vault
+    - image: vault:1.3.0
     steps:
       - checkout
       - setup_remote_docker:
