@@ -23,7 +23,7 @@ Additional tools like `kubectl` and `vim` are added to Docker image for advanced
 - Use tree to navigate: `kubernetes (or another cluster name)` => `Workloads` => `Deployments` => `prov` (application deployment) => `prov-xxx-id` (application pod).
 - Use mouse right click to call context menu and use available iteraction options.
 
-![pod-context-menu](./pod-context-menu.png)
+![pod-context-menu](./docs/pod-context-menu.png)
 
 - Use "Delete" item to restart application.
 - Use "Teminal" item to execute application container terminal.
