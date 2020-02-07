@@ -12,9 +12,23 @@ VS Code [Kubernetes plugin](https://github.com/Azure/vscode-kubernetes-tools) al
 
 Kubernetes API's RBAC allows to restrict possible iteraction scope to concrete Kubernetes namespace.
 
+## Usage
+
+### Terminal
+
 Additional tools like `kubectl` and `vim` are added to Docker image for advanced use-cases to users show familiar with these tools.
 
-## Usage
+To open new terminal session, use VS Code's default keybindings: 
+
+- <kbd>Ctrl + Shift + c</kbd> for Windows and Linux.
+- <kbd>CMD + Shift + c</kbd> for MacOS.
+
+To open Command Palette:
+
+- <kbd>Ctrl + Shift + p</kbd> for Windows and Linux.
+- <kbd>CMD + Shift + p</kbd> for MacOS.
+
+### Kubernetes
 
 - Click to Kuberntes plugin icon in the sidebar.
 
