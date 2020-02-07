@@ -18,7 +18,7 @@ Kubernetes API's RBAC allows to restrict possible iteraction scope to concrete K
 
 Additional tools like `kubectl` and `vim` are added to Docker image for advanced use-cases to users show familiar with these tools.
 
-To open new terminal session, use VS Code's default keybindings: 
+To start new terminal session, use VS Code's default keybindings: 
 
 - <kbd>Ctrl + Shift + c</kbd> for Windows and Linux.
 - <kbd>CMD + Shift + c</kbd> for MacOS.
