@@ -31,7 +31,13 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
 # Install Kubernetes extension and fix dependencies.
 # Fixing dependencies - its a bug. Maybe don't needed with next ext versions
 RUN code-server --install-extension ms-kubernetes-tools.vscode-kubernetes-tools@1.0.6 \
+  && code-server --install-extension ms-mssql.mssql@1.8.0 \
   && cd ~/.local/share/code-server/extensions/redhat.vscode-yaml-0.5.3 && npm i
+COPY ./create-kubeconfig.sh /create-kubeconfig.sh
+
+# Install MSSQL extension
+RUN code-server --install-extension ms-mssql.mssql@1.8.0
+COPY ./configure-mssql.sh /configure-mssql.sh
 
 # Install AzureCLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -42,8 +48,6 @@ RUN curl -fsSLk -o /tmp/vault.zip https://releases.hashicorp.com/vault/1.2.2/vau
   && sudo chown coder:coder /bin/vault && sudo chmod 700 /bin/vault \
   && rm -f /tmp/vault.zip
 
-# Add files
-COPY ./create-kubeconfig.sh /create-kubeconfig.sh
 COPY ./entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["dumb-init", "/entrypoint.sh"]
