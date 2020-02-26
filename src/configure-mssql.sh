@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-settings_file="${HOME}/.vscode/settings.json"
+settings_file="${HOME}/.local/share/code-server/User/settings.json"
 
 echo "[INFO] Write MSSQL connection data to ${settings_file}"
 
@@ -47,6 +47,7 @@ cat $tmp | jq \
       "database": $database,
       "user": $user,
       "password": $password,
-      "savePassword": true
+      "savePassword": true,
+      "profileName": "mssql-auto"
     }
   ]' > ${settings_file}
