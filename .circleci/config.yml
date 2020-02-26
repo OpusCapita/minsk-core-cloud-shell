@@ -10,10 +10,10 @@ jobs:
     docker:
     - image: vault:1.3.0
     steps:
+      - run: ./src/scripts/install-dependencies.sh
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: ./src/scripts/install-dependencies.sh
       - run: make docker-build-and-push
 workflows:
   version: 2
