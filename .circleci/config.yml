@@ -13,9 +13,8 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: |
-          ./src/scripts/install-dependencies.sh
-          make docker-build-and-push
+      - run: ./src/scripts/install-dependencies.sh
+      - run: make docker-build-and-push
 workflows:
   version: 2
   commit:
