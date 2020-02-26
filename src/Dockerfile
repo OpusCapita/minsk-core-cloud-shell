@@ -13,40 +13,37 @@ RUN cd /bin \
   && echo "alias k=kubectl" >> /home/coder/.bashrc
 
 # Install krew
-RUN ( \
-  set -x; cd "$(mktemp -d)" && \
-  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/download/v0.3.3/krew.{tar.gz,yaml}" && \
-  tar zxvf krew.tar.gz && \
-  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" && \
-  "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz && \
-  "$KREW" update \
-  )
+# RUN ( \
+#   set -x; cd "$(mktemp -d)" && \
+#   curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/download/v0.3.3/krew.{tar.gz,yaml}" && \
+#   tar zxvf krew.tar.gz && \
+#   KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" && \
+#   "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz && \
+#   "$KREW" update \
+#   )
 
-ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# ENV PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# Install NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
-  && sudo apt-get install -y nodejs
+# # Install NodeJS
+# RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
+#   && sudo apt-get install -y nodejs
 
 # Install Kubernetes extension and fix dependencies.
-# Fixing dependencies - its a bug. Maybe don't needed with next ext versions
-RUN code-server --install-extension ms-kubernetes-tools.vscode-kubernetes-tools@1.0.6 \
-  && code-server --install-extension ms-mssql.mssql@1.8.0 \
-  && cd ~/.local/share/code-server/extensions/redhat.vscode-yaml-0.5.3 && npm i
+RUN code-server --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 COPY ./create-kubeconfig.sh /create-kubeconfig.sh
 
 # Install MSSQL extension
-RUN code-server --install-extension ms-mssql.mssql@1.8.0
+RUN code-server --install-extension ms-mssql.mssql
 COPY ./configure-mssql.sh /configure-mssql.sh
 
-# Install AzureCLI
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+# # Install AzureCLI
+# RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# Install Vault
-RUN curl -fsSLk -o /tmp/vault.zip https://releases.hashicorp.com/vault/1.2.2/vault_1.2.2_linux_amd64.zip \
-  && sudo unzip /tmp/vault.zip -d /bin/ \
-  && sudo chown coder:coder /bin/vault && sudo chmod 700 /bin/vault \
-  && rm -f /tmp/vault.zip
+# # Install Vault
+# RUN curl -fsSLk -o /tmp/vault.zip https://releases.hashicorp.com/vault/1.2.2/vault_1.2.2_linux_amd64.zip \
+#   && sudo unzip /tmp/vault.zip -d /bin/ \
+#   && sudo chown coder:coder /bin/vault && sudo chmod 700 /bin/vault \
+#   && rm -f /tmp/vault.zip
 
 COPY ./entrypoint.sh /entrypoint.sh
 
