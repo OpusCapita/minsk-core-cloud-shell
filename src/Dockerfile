@@ -38,6 +38,7 @@ COPY ./configure-mssql.sh /configure-mssql.sh
 
 # Install MySQL extension
 RUN code-server --install-extension formulahendry.vscode-mysql
+COPY ./configure-mysql.sh /configure-mysql.sh
 
 # # Install AzureCLI
 # RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
