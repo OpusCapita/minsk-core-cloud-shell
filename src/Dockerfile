@@ -36,6 +36,9 @@ COPY ./create-kubeconfig.sh /create-kubeconfig.sh
 RUN code-server --install-extension ms-mssql.mssql
 COPY ./configure-mssql.sh /configure-mssql.sh
 
+# Install MySQL extension
+RUN code-server --install-extension formulahendry.vscode-mysql
+
 # # Install AzureCLI
 # RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
